@@ -30,11 +30,11 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
+    Route::resource('buku', BukuController::class);
 
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
-    Route::resource('buku', BukuController::class);
     Route::post('login', [LoginController::class, 'login']);
     Route::post('register', [RegisterController::class, 'register']);
 
